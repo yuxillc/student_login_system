@@ -32,4 +32,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,rootMode.class);
         startActivity(intent);
     }
+
+    public void studentMode(View view) {
+        Intent intent = new Intent(this,StudentLogin.class);
+        startActivity(intent);
+    }
+
+    public void teacherMode(View view) {
+        Intent intent = new Intent(this,TeacherLogin.class);
+        startActivity(intent);
+    }
 }
