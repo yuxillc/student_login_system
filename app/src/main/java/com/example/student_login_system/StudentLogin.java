@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
@@ -68,6 +70,50 @@ public class StudentLogin extends AppCompatActivity {
         EditText Password =(EditText) findViewById(R.id.password);
         studentID = String.valueOf(StudentID.getText());
         password = String.valueOf(Password.getText());
+
+        int index = studentListSearch(studentID,password);
+        if(index>=0){
+            Toast.makeText(getApplicationContext(),"login success.",
+                    Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(), "login fail.",
+                    Toast.LENGTH_SHORT).show(); }
+
+
+    }
+    public void studentRegister(View view) {
+        String username,studentID,email,password;
+        EditText StudentID =(EditText) findViewById(R.id.studentID);
+        EditText Password =(EditText) findViewById(R.id.password);
+        studentID = String.valueOf(StudentID.getText());
+        password = String.valueOf(Password.getText());
+
+        while(true) {
+            int index = studentListSearch(studentID);
+            if (index >= 0) {
+                int index_pw = studentListSearch(studentID, password);
+                if (index_pw >= 0) {
+                    Toast.makeText(getApplicationContext(), "register fail.",
+                            Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                StudentList.remove(index);
+                Toast.makeText(getApplicationContext(), "rename success.",
+                        Toast.LENGTH_SHORT).show();
+            }
+            else {
+                StudentList.add(new Student(studentID, password));
+                Toast.makeText(getApplicationContext(), "register success.",
+                        Toast.LENGTH_SHORT).show();
+            }
+            onResume();
+            break;
+        }
+    }
+
+    public int studentListSearch(String studentID,String password) {
+
+        int flag = -1;
         for (int index = 0,
              listzise = StudentList.size();
              index < listzise;
@@ -76,16 +122,25 @@ public class StudentLogin extends AppCompatActivity {
             if (StudentList
                     .get(index)
                     .equals(studentID,password)) {
-                Toast.makeText(getApplicationContext(),"login success.",Toast.LENGTH_SHORT).show();
-                
+                return index;
             }
-            else {
-                Toast.makeText(getApplicationContext(), "login fail", Toast.LENGTH_SHORT).show(); }
-
         }
-
-
+        return flag;
     }
-    public void studentSign(View view) {
+    public int studentListSearch(String studentID) {
+
+        int flag = -1;
+        for (int index = 0,
+             listzise = StudentList.size();
+             index < listzise;
+             index++)
+        {
+            if (StudentList
+                    .get(index)
+                    .equals(studentID)) {
+                return index;
+            }
+        }
+        return flag;
     }
 }

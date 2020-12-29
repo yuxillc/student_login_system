@@ -79,7 +79,11 @@ public class Student {
             return true;
         else return false;
     }
-
+    public boolean equals(String studentID) {
+        if (this.studentID.equals(studentID)  )
+            return true;
+        else return false;
+    }
     @Override
     public int hashCode() {
         return Objects.hash(username, studentID, email, password);
