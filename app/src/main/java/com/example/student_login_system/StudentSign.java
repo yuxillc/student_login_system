@@ -12,6 +12,12 @@ public class StudentSign extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_sign);
+
+        Bundle bundle = this.getIntent().getExtras();
+        if(bundle!=null) {
+            Toast.makeText(getApplicationContext(), bundle.getString("NAME")+" welcome",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     public void sign(View view) {

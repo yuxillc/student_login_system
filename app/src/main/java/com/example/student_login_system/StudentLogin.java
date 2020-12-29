@@ -1,6 +1,7 @@
 package com.example.student_login_system;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 import java.util.ArrayList;
 
+
 public class StudentLogin extends AppCompatActivity {
     ArrayList<Student> StudentList = new ArrayList<Student>();
 
@@ -22,9 +24,7 @@ public class StudentLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login);
-
         StudentList.add(new Student());
-        Toast.makeText(getApplicationContext(), StudentList.get(0).getStudentID(), Toast.LENGTH_SHORT).show();
     }
 
     protected void onResume () {
@@ -43,7 +43,6 @@ public class StudentLogin extends AppCompatActivity {
             tv4Text += StudentList.get(index).getUsername() + ",";
             tv4Text += StudentList.get(index).getPassword() + ",";
             tv4Text += StudentList.get(index).getEmail() + "\n";
-
         }
         tv4.setText(tv4Text);
     }
@@ -80,7 +79,12 @@ public class StudentLogin extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show(); }
 
 
+        Bundle bundle = new Bundle();
+        bundle.putString("NAME", StudentList.get(index).getUsername());
+        Intent intent = new Intent(this, StudentSign.class).putExtras(bundle);
+        startActivity(intent);
     }
+
     public void studentRegister(View view) {
         String username,studentID,email,password;
         EditText StudentID =(EditText) findViewById(R.id.studentID);

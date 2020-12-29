@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
-            android:layout_height="658dp"
+            android:layout_height="443dp"
             app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
         <TextView
