@@ -9,25 +9,12 @@ public class Student {
     private String password;
     private static int IDsum=1;
 
-    public Student(String username,String email,String password){
-        this.username=username;
-        this.studentID="S"+String.format("%06d",IDsum);
-        this.email=email;
-        this.password=password;
-        IDsum++;
-    }
     public Student(){
         this.username="";
         this.password="00000000";
         this.email="";
         this.studentID="S000001";
         IDsum++;
-    }
-    public Student(String studentID,String password){
-        this.username="";
-        this.password=password;
-        this.email="";
-        this.studentID=studentID;
     }
     public Student(String studentID){
         this.username="";
@@ -41,6 +28,20 @@ public class Student {
         this.email="";
         this.studentID="S"+String.format("%06d",ID);
     }
+    public Student(String studentID,String password){
+        this.username="";
+        this.password=password;
+        this.email="";
+        this.studentID=studentID;
+    }
+    public Student(String studentID,String password,String username){
+        this.username=username;
+        this.studentID=studentID;
+        this.email="";
+        this.password=password;
+        IDsum++;
+    }
+
 
     public static int getIDsum() {
         return IDsum;

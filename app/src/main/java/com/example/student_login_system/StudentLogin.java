@@ -81,6 +81,7 @@ public class StudentLogin extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("NAME", StudentList.get(index).getUsername());
+        bundle.putString("ID", StudentList.get(index).getStudentID());
         Intent intent = new Intent(this, StudentSign.class).putExtras(bundle);
         startActivity(intent);
     }

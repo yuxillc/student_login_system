@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class StudentSign extends AppCompatActivity {
-
+    String ID="Uffffff";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +18,16 @@ public class StudentSign extends AppCompatActivity {
         if(bundle!=null) {
             Toast.makeText(getApplicationContext(), bundle.getString("NAME")+" welcome",
                     Toast.LENGTH_LONG).show();
+            ID=bundle.getString("ID");
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        TextView tv4 = (TextView) findViewById(R.id.textView4);
+        tv4.setText(ID+",welcome");
     }
 
     public void sign(View view) {
