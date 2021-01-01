@@ -42,4 +42,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,TeacherLogin.class);
         startActivity(intent);
     }
+
+    public void close(View view) {
+        onDestroy();
+    }
 }

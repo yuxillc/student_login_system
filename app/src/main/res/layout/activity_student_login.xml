@@ -66,6 +66,23 @@
                 android:layout_height="wrap_content"
                 android:onClick="studentRegister"
                 android:text="Registe" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="save"
+                android:text="Save" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="read"
+                android:text="Read" />
+
         </LinearLayout>
 
         <TextView
