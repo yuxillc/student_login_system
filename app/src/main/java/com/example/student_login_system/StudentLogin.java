@@ -50,27 +50,13 @@ public class StudentLogin extends AppCompatActivity {
 
     protected void onResume () {
         super.onResume();
-        TextView tv4;
-        tv4 = (TextView) findViewById(R.id.tv4);
-        String tv4Text = "StudentID,UserName,Password,Email\n";
-
-
-        for (int index = 0,
-             listzise = StudentList.size();
-             index < listzise;
-             index++)
-        {
-            tv4Text += StudentList.get(index).getStudentID() + ",";
-            tv4Text += StudentList.get(index).getUsername() + ",";
-            tv4Text += StudentList.get(index).getPassword() + ",";
-            tv4Text += StudentList.get(index).getEmail() + "\n";
-        }
-        tv4.setText(tv4Text);
+        read(findViewById(R.id.button9));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        save(findViewById(R.id.button8));
     }
 
     //    public void studentLogin(View view) {
